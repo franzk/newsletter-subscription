@@ -58,7 +58,7 @@ export default defineComponent({
     computed: {
         isEmailValid(): boolean {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            return this.email && emailPattern.test(this.email)
+            return !!this.email && emailPattern.test(this.email)
         }
     }
 })
