@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.util.UUID;
 
+/**
+ * Entity class for newsletter subscriptions.
+ */
 @Entity
 @Data
 public class Subscription {

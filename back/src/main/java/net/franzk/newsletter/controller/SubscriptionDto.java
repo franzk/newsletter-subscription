@@ -3,6 +3,9 @@ package net.franzk.newsletter.controller;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
+/**
+ * Dto class for subscription requests.
+ */
 @Data
 public class SubscriptionDto {
     @Pattern(
