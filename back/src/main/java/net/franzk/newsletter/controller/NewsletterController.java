@@ -39,7 +39,7 @@ public class NewsletterController {
      * @return success message
      * @throws NoSuchEmailSubscribedException if the email is not subscribed
      */
-    @DeleteMapping("/unsubscribe")
+    @PostMapping("/unsubscribe")
     public ResponseEntity<String> unsubscribe(@RequestBody @Valid SubscriptionDto subscriptionDto) throws NoSuchEmailSubscribedException {
         newsletterService.unsubscribe(subscriptionDto.getEmail());
         return ResponseEntity.ok("Unsubscribed from newsletter " + subscriptionDto.getEmail());
