@@ -1,6 +1,7 @@
 package net.franzk.newsletter.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;
@@ -17,4 +18,5 @@ public class Subscription {
     private UUID id;
 
     private String email;
+
 }

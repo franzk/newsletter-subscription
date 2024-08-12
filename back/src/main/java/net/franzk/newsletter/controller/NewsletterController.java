@@ -50,7 +50,7 @@ public class NewsletterController {
      *
      * @return list of subscriptions
      */
-    @GetMapping("/list")
+    @GetMapping("/mailing-list")
     public ResponseEntity<List<SubscriptionDto>> getSubscriptions() {
         List<SubscriptionDto> subscriptions = newsletterService.getSubscriptions();
         return ResponseEntity.ok(subscriptions);
