@@ -20,6 +20,9 @@ importers:
       vue-router:
         specifier: '4'
         version: 4.4.3(vue@3.4.37(typescript@5.5.4))
+      vue3-recaptcha-v2:
+        specifier: ^2.0.2
+        version: 2.0.2(vue@3.4.37(typescript@5.5.4))
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.1.2
@@ -655,6 +658,11 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
+  vue3-recaptcha-v2@2.0.2:
+    resolution: {integrity: sha512-uIxJG4+BVquSVJxCLdkJV3Y0IgXPG+sWqAG34qwHt9MungDFshuKprtrN48oJHcLXePLey/FEo2B5pbfMB5cjQ==}
+    peerDependencies:
+      vue: ^3
+
   vue@3.4.37:
     resolution: {integrity: sha512-3vXvNfkKTBsSJ7JP+LyR7GBuwQuckbWvuwAid3xbqK9ppsKt/DUvfqgZ48fgOLEfpy1IacL5f8QhUVl77RaI7A==}
     peerDependencies:
@@ -1144,6 +1152,10 @@ snapshots:
       '@vue/language-core': 2.0.29(typescript@5.5.4)
       semver: 7.6.3
       typescript: 5.5.4
+
+  vue3-recaptcha-v2@2.0.2(vue@3.4.37(typescript@5.5.4)):
+    dependencies:
+      vue: 3.4.37(typescript@5.5.4)
 
   vue@3.4.37(typescript@5.5.4):
     dependencies:

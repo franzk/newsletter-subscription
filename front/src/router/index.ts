@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Subscription from '../components/Subscription.vue';
+import Subscription from '../components/subscriptionForm/Subscription.vue';
 import MailingList from '../components/MailingList.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: Subscription, name: 'subscribe', props: {action: 'subscribe'} },
-  { path: '/unsubscribe', component: Subscription, name: 'unsubscribe', props: {action: 'unsubscribe'} },
+  { path: '/', component: Subscription, name: 'subscribe', props: {action: 'Subscribe'} },
+  { path: '/unsubscribe', component: Subscription, name: 'unsubscribe', props: {action: 'Unsubscribe'} },
   { path: '/mailing-list', component: MailingList, name: 'mailingList' }
 ]
 
