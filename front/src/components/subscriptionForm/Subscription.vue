@@ -1,9 +1,9 @@
 <template>
     <section class="subscription_page">
         <h3>{{ action }} to this incredible newsletter !</h3>
-    
         <article class="subscription_form">
             <Captcha 
+                v-if="recaptchaSiteKey"
                 v-on:changeState="captchaChangeState($event)"
             />
 
@@ -56,6 +56,10 @@ export default defineComponent({
         }
     },
 
+    mounted() {
+        this.captchaSuccess = !this.recaptchaSiteKey
+    },
+
     watch: {
         email(val) {
             const emailFormatError = val && !this.isEmailValid 
@@ -91,6 +95,9 @@ export default defineComponent({
         isEmailValid(): boolean {
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
             return !!this.email && emailPattern.test(this.email)
+        },
+        recaptchaSiteKey(): string {
+            return import.meta.env.VITE_RECAPTCHAV2_SITEKEY
         }
     }
 })

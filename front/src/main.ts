@@ -8,9 +8,11 @@ import { install } from "vue3-recaptcha-v2"
 const app = createApp(App)
 app.use(router)
 
-app.use(install, {
-    sitekey: import.meta.env.VITE_RECAPTCHAV2_SITEKEY,
-    cnDomains: false // default: false
-})
+if (import.meta.env.VITE_RECAPTCHAV2_SITEKEY) {
+    app.use(install, {
+        sitekey: import.meta.env.VITE_RECAPTCHAV2_SITEKEY,
+        cnDomains: false // default: false
+    })
+}
 
 app.mount('#app')

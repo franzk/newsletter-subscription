@@ -23,8 +23,7 @@ export default defineComponent({
 
     setup(_props, { emit }) {
 
-        const handleWidgetId = (widgetId: number) => {
-            console.log("Widget ID: ", widgetId)
+        const handleWidgetId = (_widgetId: number) => {
         }
 
         const handleErrorCalback = () => {
@@ -37,8 +36,7 @@ export default defineComponent({
             emit('changeState', false)      
         }
 
-        const handleLoadCallback = (response: unknown) => {
-            console.log("Load callback", response)
+        const handleLoadCallback = (_response: unknown) => {
             emit('changeState', true)
         }
 

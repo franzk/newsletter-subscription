@@ -27,7 +27,6 @@ export default defineComponent({
             try {
                 const response = await axios.get(`${import.meta.env.VITE_API}/mailing-list`)
                 this.items = response.data.map((item : { email: String }) => item.email)
-                console.log(response)
             } catch (error: any) {               
                 console.error('get mailing-list failed:', error)
             }
