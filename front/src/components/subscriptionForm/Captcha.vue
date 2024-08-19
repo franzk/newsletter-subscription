@@ -21,7 +21,7 @@ export default defineComponent({
 
     emits: ['changeState'],
 
-    setup(props, { emit }) {
+    setup(_props, { emit }) {
 
         const handleWidgetId = (widgetId: number) => {
             console.log("Widget ID: ", widgetId)

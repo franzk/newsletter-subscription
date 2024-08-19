@@ -1,5 +1,6 @@
 services:
   postgres_db:
+    profiles: ["dev", "prod"]
     image: postgres:latest
     environment:
       POSTGRES_DB: ${POSTGRES_DATABASE}
@@ -9,8 +10,11 @@ services:
       - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   back:
+    profiles: ["dev", "prod"]
     build: ../back
     environment:
       - spring.datasource.url=jdbc:postgresql://postgres_db:5432/${POSTGRES_DATABASE}
@@ -20,7 +24,25 @@ services:
       - 9000:9000
     depends_on:
       - postgres_db
+    networks:
+      - app-network
+ 
+  
+  front:
+    profiles:
+      - prod
+    build: ../front
+    ports:
+      - 80:80
+    depends_on:
+      - back
+    networks:
+      - app-network   
 
 volumes:
   postgres_data:
     driver: local
+
+networks:
+  app-network:
+    driver: bridge

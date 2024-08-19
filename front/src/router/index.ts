@@ -13,7 +13,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(async (to, from, next) => { 
+router.beforeEach(async (_to, _from, next) => { 
   next();
 })
 
