@@ -24,7 +24,7 @@ git clone https://github.com/franzk/newsletter-subscription.git
 ### 3. Start the backend using Docker Compose:
 ```console 
 cd docker
-docker compose up
+docker compose --profile dev up
 ```
 
 ### 4. Set up VueJS :  
@@ -37,3 +37,10 @@ pnpm run dev
 
 ### 5. Test the Application
 Open your browser and go to http://localhost:8080.
+
+###6. Deploy
+```console 
+cd docker
+docker compose --profile prod up
+```
+Test it on : http://localhost
