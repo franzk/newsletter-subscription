@@ -1,4 +1,4 @@
-# SIMPLE NEWSLETTER SUBSCRIPTION TOOL (VUEJS + SPRING BOOT + RECAPTCHA)
+# NEWSLETTER SUBSCRIPTION TOOL (VUEJS + SPRING BOOT + RECAPTCHA)
 
 <img src="https://img.shields.io/badge/Vue.js%203-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D&style=flat-square"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square"> <img src="https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=fff"> - 
 <img src="https://img.shields.io/badge/-JAVA%2017-00A7BB?style=for-the-badge&logo=java&logoColor=white&style=flat-square">
