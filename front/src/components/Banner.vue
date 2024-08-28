@@ -4,7 +4,6 @@
         <nav>
             <ul>
                 <li><router-link to="/">Subscribe</router-link></li>
-                <li><router-link to="/unsubscribe">Unsubscribe</router-link></li>
                 <li><router-link to="/mailing-list">Mailing list</router-link></li>               
         </ul>
         </nav>

@@ -1,7 +1,8 @@
 <template>
   <section class="subscription_page">
-    <h3>{{ action }} to this incredible newsletter !</h3>
+    <h3>Subscribe to this incredible newsletter !</h3>
     <article class="subscription_form">
+
       <Captcha 
         v-if="recaptchaSiteKey"
         @changeState="captchaChangeState($event)"
@@ -11,7 +12,7 @@
         v-if="!successMessage"
         v-model="email"
         :buttonEnabled="captchaSuccess"
-        :buttonText="action"
+        buttonText="Subscribe"
         @emailSubmission="submit"
         @validityChange="validityChange($event)"
       />
@@ -28,19 +29,11 @@
 <script setup lang="ts">
 /* imports */
   import { ref, onMounted, computed, watch } from 'vue'
-  import axios, { AxiosError } from 'axios'
+  import subscription from '../service/subscription'
   import Captcha from '../components/subscriptionForm/Captcha.vue'
   import Status from '../components/subscriptionForm//Status.vue'
   import InputEmail from '../components/subscriptionForm//InputEmail.vue'
   
-/* props */
-  const props = defineProps({
-    action: {
-      type: String as () => 'Subscribe' | 'Unsubscribe',
-      default: 'Subscribe'
-    }
-  })
-
 /* email */
   const email = ref('')
 
@@ -68,13 +61,14 @@
 /* submit */
   const successMessage = ref('')
   const errorMessage = ref('')
+  
   const submit = async () => {
-    try {
-      const api_url = `${import.meta.env.VITE_API}/${props.action.toLocaleLowerCase()}`
-      await axios.post(api_url, { email: email.value })
-      successMessage.value = `${props.action} ok`
-    } catch (error: any) {               
-      errorMessage.value = `${props.action} failed : ${(error as AxiosError).response?.data}`
+    const result = await subscription('subscribe', email.value)
+    if (result) {
+      errorMessage.value = `Subscription failed : ${result}`
+    } else {
+      errorMessage.value = ''
+      successMessage.value = 'Subscription ok'
     }
   }
 </script>

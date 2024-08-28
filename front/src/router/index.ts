@@ -3,8 +3,7 @@ import SubscriptionView from '../views/SubscriptionView.vue'
 import MailingListView from '../views/MailingListView.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: SubscriptionView, name: 'subscribe', props: {action: 'Subscribe'} },
-  { path: '/unsubscribe', component: SubscriptionView, name: 'unsubscribe', props: {action: 'Unsubscribe'} },
+  { path: '/', component: SubscriptionView, name: 'subscribe' },
   { path: '/mailing-list', component: MailingListView, name: 'mailingList' }
 ]
 
