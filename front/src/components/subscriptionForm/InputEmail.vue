@@ -17,7 +17,6 @@
 <script setup lang="ts">
 /* imports */
   import { ref, watch, computed } from 'vue'
-  import Status from './Status.vue'
 
 /* props */
   const props = defineProps({
