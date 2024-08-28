@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import Banner from './components/Banner.vue';
-
-
+import Banner from './components/Banner.vue'
 </script>
 
 <template>
@@ -9,5 +7,4 @@ import Banner from './components/Banner.vue';
   <router-view />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

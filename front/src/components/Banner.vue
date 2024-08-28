@@ -1,20 +1,20 @@
 <template>
-    <header class="banner">
-        <h2>Newsletter subscription tool</h2>
-        <nav>
-            <ul>
-                <li><router-link to="/">Subscribe</router-link></li>
-                <li><router-link to="/mailing-list">Mailing list</router-link></li>               
-        </ul>
-        </nav>
-    </header>
+  <header class="banner">
+    <h2>Newsletter subscription tool</h2>
+    <nav>
+      <ul>
+        <li><router-link to="/">Subscribe</router-link></li>
+        <li><router-link to="/mailing-list">Mailing list</router-link></li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Banner'
+  name: 'Banner',
 })
 </script>
 

@@ -4,16 +4,16 @@ import MailingListView from '../views/MailingListView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', component: SubscriptionView, name: 'subscribe' },
-  { path: '/mailing-list', component: MailingListView, name: 'mailingList' }
+  { path: '/mailing-list', component: MailingListView, name: 'mailingList' },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
-router.beforeEach(async (_to, _from, next) => { 
-  next();
+router.beforeEach(async (_to, _from, next) => {
+  next()
 })
 
 export default router
