@@ -1,0 +1,14 @@
+{
+  "vetur.completion.scaffoldSnippetSources": {
+
+    "workspace": "💼",
+    "user": "🗒️",
+    "vetur": "✌"
+  },
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "cSpell.words": [
+    "axios"
+  ],
+}

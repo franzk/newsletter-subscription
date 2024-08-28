@@ -1,55 +1,34 @@
 <template>
-    <RecaptchaV2
-        @widget-id="handleWidgetId"
-        @error-callback="handleErrorCalback"
-        @expired-callback="handleExpiredCallback"
-        @load-callback="handleLoadCallback"
-        theme="dark"
+  <RecaptchaV2
+    @widget-id="handleWidgetId"
+    @error-callback="handleErrorCallback"
+    @expired-callback="handleExpiredCallback"
+    @load-callback="handleLoadCallback"
+    theme="dark"
   />
 </template>
 
-<script lang="ts">
-import { RecaptchaV2 } from "vue3-recaptcha-v2"
-import { defineComponent } from "vue"
+<script setup lang="ts">
+// imports
+  import { RecaptchaV2 } from "vue3-recaptcha-v2"
 
-export default defineComponent({
-    name: 'Captcha',
+// emits  
+  const emit = defineEmits(['changeState'])
 
-    components: {
-        RecaptchaV2,
-    },
+// methods
+  const handleWidgetId = (_widgetId: number) => {}
 
-    emits: ['changeState'],
+  const handleErrorCallback = () => {
+    console.log("Error callback")
+    emit('changeState', false)
+  }
 
-    setup(_props, { emit }) {
+  const handleExpiredCallback = () => {
+    console.log("Expired callback")  
+    emit('changeState', false)      
+  }
 
-        const handleWidgetId = (_widgetId: number) => {
-        }
-
-        const handleErrorCalback = () => {
-            console.log("Error callback")
-            emit('changeState', false)
-        }
-
-        const handleExpiredCallback = () => {
-            console.log("Expired callback")  
-            emit('changeState', false)      
-        }
-
-        const handleLoadCallback = (_response: unknown) => {
-            emit('changeState', true)
-        }
-
-        return {
-            handleWidgetId,
-            handleErrorCalback,
-            handleExpiredCallback,
-            handleLoadCallback,
-        }
-    },
-})
+  const handleLoadCallback = (_response: unknown) => {
+    emit('changeState', true)
+  }
 </script>
-
-<style>
-
-</style>
