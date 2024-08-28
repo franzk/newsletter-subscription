@@ -47,31 +47,31 @@
 
 <style scoped>
 ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-background-color: #2c2c2c;
-border: 1px solid #333;
-padding: 8px 12px;
-margin-bottom: 8px;
-border-radius: 4px;
-font-size: 14px;
-color: #e0e0e0;
-transition: background-color 0.3s, box-shadow 0.3s;
-display: flex;
+  background-color: #2c2c2c;
+  border: 1px solid #333;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e0e0e0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  display: flex;
 }
 
 .email {
-flex: 1;
+  flex: 1;
 }
 
 .delete {
-border: 1px solid white;
-padding: 2px 10px 2px 10px;
-border-radius: 50%;
-cursor: pointer;
+  border: 1px solid white;
+  padding: 2px 10px 2px 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 </style>
