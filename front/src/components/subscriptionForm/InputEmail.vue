@@ -12,12 +12,6 @@
       {{ buttonText }}
     </button>  
   </div> 
-  <div class="status">
-    <Status v-if="email && !isEmailValid" type="error">
-        Please enter a valid email address.
-    </Status>
-    <div v-else>&nbsp;</div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -55,7 +49,11 @@
   })
 
   const isEmailValid = computed(() => {
-    return emailValidationPattern.test(email.value)
+    return !email.value || emailValidationPattern.test(email.value) 
+  })
+
+  watch(() => isEmailValid.value, (newVal) => {
+    emit('validityChange', newVal)
   })
 
 /* button */
@@ -64,7 +62,7 @@
   })
 
 /* emits */
-  const emit = defineEmits(['update:modelValue', 'emailSubmission'])
+  const emit = defineEmits(['update:modelValue', 'validityChange', 'emailSubmission'])
 </script>
 
 <style scoped>

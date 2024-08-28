@@ -13,10 +13,12 @@
         :buttonEnabled="captchaSuccess"
         :buttonText="action"
         @emailSubmission="submit"
+        @validityChange="validityChange($event)"
       />
       <div v-else>
         <status type="success">{{ successMessage }}</status>
       </div>
+
       <Status v-if="errorMessage" type="error">{{ errorMessage }}</Status>
             
     </article>
@@ -27,9 +29,9 @@
 /* imports */
   import { ref, onMounted, computed, watch } from 'vue'
   import axios, { AxiosError } from 'axios'
-  import Captcha from './Captcha.vue'
-  import Status from './Status.vue'
-  import InputEmail from './InputEmail.vue'
+  import Captcha from '../components/subscriptionForm/Captcha.vue'
+  import Status from '../components/subscriptionForm//Status.vue'
+  import InputEmail from '../components/subscriptionForm//InputEmail.vue'
   
 /* props */
   const props = defineProps({
@@ -41,10 +43,14 @@
 
 /* email */
   const email = ref('')
+
   watch(() => email.value, () => {
     successMessage.value = ''
-    errorMessage.value = ''
   })
+
+  const validityChange = (validity: boolean) => {
+    errorMessage.value = validity ? '' : 'Please enter a valid email address !'
+  } 
 
 /* captcha */
   const captchaSuccess = ref(false)

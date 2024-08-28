@@ -1,7 +1,7 @@
 <template>
   <RecaptchaV2
     @widget-id="handleWidgetId"
-    @error-callback="handleErrorCalback"
+    @error-callback="handleErrorCallback"
     @expired-callback="handleExpiredCallback"
     @load-callback="handleLoadCallback"
     theme="dark"
@@ -18,7 +18,7 @@
 // methods
   const handleWidgetId = (_widgetId: number) => {}
 
-  const handleErrorCalback = () => {
+  const handleErrorCallback = () => {
     console.log("Error callback")
     emit('changeState', false)
   }
