@@ -1,67 +1,76 @@
 <template>
   <div class="form">
     <label for="email">Your email : </label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email" 
-      v-model="email"
-      required
-    >
+    <input type="email" id="email" name="email" v-model="email" required />
     <button @click="$emit('emailSubmission')" :disabled="!isButtonEnabled">
       {{ buttonText }}
-    </button>  
-  </div> 
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
 /* imports */
-  import { ref, watch, computed } from 'vue'
+import { ref, watch, computed } from 'vue'
 
 /* props */
-  const props = defineProps({
-    modelValue: {
-      type: String,
-      default: ''
-    },
-    buttonEnabled: {
-      type: Boolean,
-      default: false
-    },
-    buttonText: {
-      type: String,
-      default: ''
-    }
-  })
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
+  buttonEnabled: {
+    type: Boolean,
+    default: false,
+  },
+  buttonText: {
+    type: String,
+    default: '',
+  },
+})
 
 /* modelValue */
-  watch(() => props.modelValue, (newVal) => {
+watch(
+  () => props.modelValue,
+  (newVal) => {
     email.value = newVal
-  })
+  },
+)
 
 /* email */
-  const email = ref(props.modelValue)
-  const emailValidationPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+const email = ref(props.modelValue)
+const emailValidationPattern =
+  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-  watch(() => email.value, (newVal) => {
+watch(
+  () => email.value,
+  (newVal) => {
     emit('update:modelValue', newVal)
-  })
+  },
+)
 
-  const isEmailValid = computed(() => {
-    return !email.value || emailValidationPattern.test(email.value) 
-  })
+/* email validity */
+const isEmailValid = computed(() => {
+  return !email.value || emailValidationPattern.test(email.value)
+})
 
-  watch(() => isEmailValid.value, (newVal) => {
+watch(
+  () => isEmailValid.value,
+  (newVal) => {
     emit('validityChange', newVal)
-  })
+  },
+)
 
-/* button */
-  const isButtonEnabled = computed(() => {
-    return props.buttonEnabled && email.value && isEmailValid.value
-  })
+/* submit button */
+const isButtonEnabled = computed(() => {
+  return props.buttonEnabled && email.value && isEmailValid.value
+})
 
 /* emits */
-  const emit = defineEmits(['update:modelValue', 'validityChange', 'emailSubmission'])
+const emit = defineEmits([
+  'update:modelValue',
+  'validityChange',
+  'emailSubmission',
+])
 </script>
 
 <style scoped>
@@ -74,7 +83,7 @@
 
 label {
   font-size: 16px;
-  color: #ffffff; 
+  color: #ffffff;
   margin-right: 10px;
 }
 
@@ -98,7 +107,7 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #bb86fc;
-  color: #ffffff; 
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
