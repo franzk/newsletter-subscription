@@ -48,6 +48,7 @@ watch(
   },
 )
 
+/* email validity */
 const isEmailValid = computed(() => {
   return !email.value || emailValidationPattern.test(email.value)
 })
@@ -59,7 +60,7 @@ watch(
   },
 )
 
-/* button */
+/* submit button */
 const isButtonEnabled = computed(() => {
   return props.buttonEnabled && email.value && isEmailValid.value
 })

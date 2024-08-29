@@ -36,7 +36,6 @@ nav ul li a {
 }
 
 button {
-  // padding: 10px 20px;
   font-size: 1em;
   color: #fff;
   background-color: #444;
