@@ -38,9 +38,8 @@ pnpm run dev
 ### 5. Test the Application
 Open your browser and go to http://localhost:8080.
 
-###6. Deploy
+### 6. Deploy
 ```console 
 cd docker
 docker compose --profile prod up
 ```
-Test it on : http://localhost
